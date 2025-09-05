@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 연습</title>
+
+    <style>
+        .box {
+            width: 200px;
+            float: left;
+            background-color: gold;
+            text-align: center;
+        }
+
+        .box p {
+            font-size: 11px;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>도서 API</h1>
+    <div class="box"></div>
+
+    <script>
+        async function bookData() {
+            const params = new URLSearchParams({
+                target: "title",
+                query: "미움받을 용기"
+            });
+
+            try {
+                const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+                    method: 'GET',
+                    headers: {
+                        Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP 오류! 상태 코드: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // .box 요소 선택
+                const boxElement = document.querySelector(".box");
+
+                // <img> 요소 생성 및 src 설정
+                const imgElement = document.createElement("img");
+                imgElement.src = data.documents[0].thumbnail;
+                boxElement.appendChild(imgElement);
+
+                // <h3> 요소 생성 및 텍스트 설정 (제목)
+                const titleElement = document.createElement("h3");
+                titleElement.textContent = data.documents[0].title;
+                boxElement.appendChild(titleElement);
+
+                // <h6> 요소 생성 및 텍스트 설정 (저자)
+                const authorElement = document.createElement("h6");
+                authorElement.textContent = data.documents[0].authors;
+                boxElement.appendChild(authorElement);
+
+                // 본문 내용 일부 잘라내기
+                let str = data.documents[0].contents.substring(0, 60);
+
+                // <p> 요소 생성 및 텍스트 설정 (내용 요약)
+                const contentsElement = document.createElement("p");
+                contentsElement.textContent = str;
+                boxElement.appendChild(contentsElement);
+
+            } catch (error) {
+                console.log('에러발생', error);
+            }
+        }
+
+        bookData();
+
+    </script>
+</body>
+
+</html>

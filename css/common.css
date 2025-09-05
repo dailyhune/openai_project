@@ -1,0 +1,65 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+ul { list-style: none; }
+a { text-decoration: none; color: #333; }
+
+body { font-family: 'Pretendard'; }
+
+/* 가운데 정렬 컨테이너 */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+
+/* banner */
+.top_banner { width: 100%; height: 60px; background: linear-gradient(to right, #fceabb, #f8b500); display: flex; align-items: center; justify-content: center;}
+
+/* header */
+header { width: 100%;border-bottom: 1px solid #ddd; background-color: #fff;}
+
+/* header top */
+.header_top { height: 70px; display: flex; justify-content: space-between; align-items: center;}
+.h_right { display: flex; gap: 15px; align-items: center;}
+.header_links {display: flex; justify-content: flex-end; gap:20px;}
+
+/* middle */
+.logo { font-size: 22px; font-weight: bold;}
+.search { width: 280px; height: 40px; background-color: #f5f5f5; }
+.mypage {width: 100px; height: 40px; background-color: #ddd; text-align: center; line-height: 40px;}
+
+/* header bottom */
+.header_b {height: 50px; display: flex; justify-content: space-between; align-items: center;}
+.header_b nav ul { display: flex; gap: 20px; }
+.catgory { width: 120px; height: 35px; background-color: wheat; text-align: center; line-height: 35px; }
+
+
+/* slider */
+#slider { width: 100%; height: 400px; background-color: aqua; margin-top: 10px;}
+
+
+/* body  */
+main { width: 100%; height: 400px; background-color: red; margin-top: 20px;}
+.book-card {background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: all 0.3s ease;cursor: pointer;}
+
+/* tooter */
+footer { width: 100%; height: 200px; background-color: black; color: #fff; display: flex; align-items: center; justify-content: center;}
+.footer {background-color: #f8f4f4; color: #333; font-size: 14px; padding: 40px 20px; line-height: 1.6;}
+
+.footer h3, .footer h4 { margin-bottom: 10px; font-weight: bold;}
+
+.footer-top {display: flex; justify-content: space-between;flex-wrap: wrap; border-bottom: 1px solid #ddd; padding-bottom: 30px; margin-bottom: 20px; }
+
+.customer-service { flex: 1 1 250px;}
+
+.footer-buttons button { margin-right: 5px; padding: 5px 10px; border: 1px solid #ccc; background-color: white; cursor: pointer; font-size: 13px;}
+
+.footer-links { display: flex; flex: 3 1 600px; justify-content: space-between; flex-wrap: wrap;}
+
+.footer-links div { margin-right: 20px; min-width: 120px; }
+
+.footer-links ul { list-style: none; padding: 0;}
+
+.footer-links li {margin-bottom: 5px;}
+
+.footer-bottom {text-align: center; font-size: 12px;color: #777;}
+
+.footer-bottom .logo {
+    font-weight: bold;
+    margin-bottom: 10px;
+}

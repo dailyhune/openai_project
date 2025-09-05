@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 연습</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>도서 API</h1>
+    <div class="book"></div>
+
+    <script>
+        async function bookData() {
+            const params = new URLSearchParams({
+                target: "title",
+                query: "미움받을 용기"
+            });
+
+            try {
+                const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+                    method: 'GET',
+                    headers: {
+                        Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP 오류! 상태 코드: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                // 1. .book 요소를 선택
+                const bookElement = document.querySelector(".book");
+
+                // 2. <h3> 요소 생성 및 텍스트 추가
+                const titleElement = document.createElement("h3");
+                titleElement.textContent = data.documents[0].title;
+                bookElement.appendChild(titleElement);
+
+                // 3. <img> 요소 생성 및 src 설정
+                const imgElement = document.createElement("img");
+                imgElement.src = data.documents[0].thumbnail;
+                bookElement.appendChild(imgElement);
+                
+            } catch (error) {
+                console.log('에러발생', error);
+            }
+        }
+
+        bookData();
+    </script>
+</body>
+
+</html>

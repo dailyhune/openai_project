@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 연습</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        section {
+            width: 1300px;
+            height: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-around;
+        }
+
+        section h3 {
+            width: 100%;
+        }
+
+        .box {
+            width: 300px;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-shadow: 4px 4px 4px #eee;
+        }
+
+        .box p {
+            font-size: 11px;
+            color: #666;
+            text-align: left;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+
+        <h1>도서 API</h1>
+
+        <section id="author1">
+        </section>
+
+        <section id="author2">
+        </section>
+
+        <section id="author3">
+        </section>
+
+    </div>
+
+
+    <script>
+        async function fetchBooks(query) {
+            const params = new URLSearchParams({
+                target: "title",
+                query,
+                size: 50
+            });
+            const url = `https://dapi.kakao.com/v3/search/book?${params}`;
+
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161"
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP 오류: ${response.status}`);
+            }
+
+            return response.json();
+        }
+
+        async function bookData() {
+            try {
+                const queries = [
+                    { query: "박경리", sectionId: "author1" },
+                    { query: "기욤뮈소", sectionId: "author2" },
+                    { query: "박완서", sectionId: "author3" },
+                ];
+
+                for (const { query, sectionId } of queries) {
+                    const data = await fetchBooks(query);
+
+                    const section = document.querySelector(`#${sectionId}`);
+
+                    // 제목 <h3> 추가
+                    const title = document.createElement('h3');
+                    title.textContent = query;
+                    section.appendChild(title);
+
+                    // 8개 div 생성 및 내용 삽입
+                    for (let j = 0; j < 8; j++) {
+                        const doc = data.documents[j];
+                        if (!doc) continue;
+
+                        const div = document.createElement('div');
+                        div.className = 'box';
+
+                        // <img>
+                        const img = document.createElement('img');
+                        img.src = doc.thumbnail;
+                        div.appendChild(img);
+
+                        // <h3>
+                        const h3 = document.createElement('h3');
+                        h3.textContent = doc.title;
+                        div.appendChild(h3);
+
+                        // <h6>
+                        const h6 = document.createElement('h6');
+                        h6.textContent = doc.authors;
+                        div.appendChild(h6);
+
+                        // <p>
+                        const p = document.createElement('p');
+                        p.textContent = doc.contents.substring(0, 60);
+                        div.appendChild(p);
+
+                        // <button>
+                        const button = document.createElement('button');
+                        button.textContent = 'click';
+                        div.appendChild(button);
+
+                        // section에 div 추가
+                        section.appendChild(div);
+                    }
+                }
+            } catch (error) {
+                console.log('에러발생', error);
+            }
+        }
+
+        bookData();
+
+    </script>
+</body>
+
+</html>

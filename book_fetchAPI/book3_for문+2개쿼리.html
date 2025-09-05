@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 연습</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        section {
+            width: 1300px;
+            height: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-content: space-around;
+        }
+
+        section h3 {
+            width: 100%;
+        }
+
+        .box {
+            width: 300px;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            box-shadow: 4px 4px 4px #eee;
+        }
+
+        .box p {
+            font-size: 11px;
+            color: #666;
+            text-align: left;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id="wrap">
+
+        <h1>도서 API</h1>
+
+        <section id="new">
+            <h3>신간도서</h3>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </section>
+
+        <section id="sale">
+            <h3>세일 도서 </h3>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </section>
+
+    </div>
+
+
+    <script>
+        async function fetchBooks(query) {
+            const params = new URLSearchParams({
+                target: "title",
+                query,
+                size: 8
+            });
+            const url = `https://dapi.kakao.com/v3/search/book?${params}`;
+
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161"
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP 오류: ${response.status}`);
+            }
+
+            return response.json();
+        }
+
+        async function bookData() {
+            try {
+                // query와 section ID를 매핑
+                const queries = [
+                    { query: "자바스크립트", sectionId: "new" },
+                    { query: "정원", sectionId: "sale" }
+                ];
+
+                for (const { query, sectionId } of queries) {
+                    const data = await fetchBooks(query);
+
+                    // 해당 섹션 내의 .box 요소 8개 선택
+                    const section = document.querySelector(`#${sectionId}`);
+                    const boxElements = section.querySelectorAll(".box");
+
+                    boxElements.forEach((box, i) => {
+                        const doc = data.documents[i];
+                        if (!doc) return;
+
+                        // <img>
+                        const img = document.createElement("img");
+                        img.src = doc.thumbnail;
+                        box.appendChild(img);
+
+                        // <h3> 제목
+                        const h3 = document.createElement("h3");
+                        h3.textContent = doc.title;
+                        box.appendChild(h3);
+
+                        // <h6> 저자
+                        const h6 = document.createElement("h6");
+                        h6.textContent = doc.authors;
+                        box.appendChild(h6);
+
+                        // <p> 내용 일부
+                        const p = document.createElement("p");
+                        p.textContent = doc.contents.substring(0, 60);
+                        box.appendChild(p);
+
+                        // <button>
+                        const btn = document.createElement("button");
+                        btn.textContent = "click";
+                        box.appendChild(btn);
+                    });
+                }
+            } catch (error) {
+                console.error('에러 발생:', error);
+            }
+        }
+
+        bookData();
+
+    </script>
+</body>
+
+</html>

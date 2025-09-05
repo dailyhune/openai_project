@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 연습</title>
+
+</head>
+
+<body>
+    <h1>도서 API</h1>
+    <p></p>
+
+    <script>
+        async function bookData() {
+            const params = new URLSearchParams({
+                target: "title",
+                query: "미움받을 용기"
+            });
+
+            try {
+                const response = await fetch(`https://dapi.kakao.com/v3/search/book?${params}`, {
+                    method: 'GET',
+                    headers: {
+                        Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP 오류! 상태 코드: ${response.status}`);
+                }
+
+                const data = await response.json();                
+                console.log(data.documents[0].title);
+                console.log(data.documents[0].thumbnail);
+            } catch (error) {
+                console.log('에러발생', error);
+            }
+        }
+
+        bookData();
+
+    </script>
+</body>
+
+</html>

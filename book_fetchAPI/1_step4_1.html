@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 연습</title>
+    
+</head>
+
+<body>
+    <h1>도서 API</h1>
+
+    <script>
+        async function fetchBooks(query) {
+            const params = new URLSearchParams({
+                target: "title",
+                query,
+                size: 50
+            });
+            const url = `https://dapi.kakao.com/v3/search/book?${params}`;
+
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    Authorization: "KakaoAK 7b2300fc6315bb65035d1a3c7b49b161"
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP 오류: ${response.status}`);
+            }
+
+            return response.json();
+        }
+
+        async function bookData() {
+            try {
+                const querys = ["자바스크립트", "강아지"];
+
+                for (const q of querys) {
+                    const data = await fetchBooks(q);
+                    console.log(data);
+                }
+
+            } catch (error) {
+                console.log('에러발생', error);
+            }
+        }
+
+        bookData();
+
+    </script>
+</body>
+
+</html>

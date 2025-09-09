@@ -1,65 +1,126 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-ul { list-style: none; }
-a { text-decoration: none; color: #333; }
+* {margin: 0;padding: 0;box-sizing: border-box;}
 
-body { font-family: 'Pretendard'; }
+ul {list-style: none;}
 
+a {text-decoration: none;color: #333;}
+
+body {font-family: 'Pretendard', sans-serif;line-height: 1.6;color: #333;background-color: #f5f5f5;}
+
+/*아이콘 메뉴*/
+.icon-bar {display: flex;justify-content: space-around;align-items: center;margin: 20px auto;max-width: 1200px;flex-wrap: wrap;gap: 20px;}
+.icon-item {display: flex;flex-direction: column;align-items: center;width: 80px;color: #444;font-size: 14px;text-align: center;cursor: pointer;transition: transform 0.2s ease;}
+.icon-item i {font-size: 32px;margin-bottom: 8px;color: gray;}
+.icon-item:hover {transform: scale(1.1);color: #000;}
 /* 가운데 정렬 컨테이너 */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px;}
+.container {max-width: 1200px;margin: 0 auto;padding: 0 20px;}
 
 /* banner */
-.top_banner { width: 100%; height: 60px; background: linear-gradient(to right, #fceabb, #f8b500); display: flex; align-items: center; justify-content: center;}
+.top_banner { width: 100%;height: 60px;background: linear-gradient(to right, #fceabb, red);display: flex;align-items: center;justify-content: center;}
+.mid_banner { width: 100%;height: 60px;background: linear-gradient(to right, #fceabb, red);display: flex;align-items: center;justify-content: center;}
+.bottom_banner { width: 100%;height: 60px;background: linear-gradient(to right, #fceabb, red);display: flex;align-items: center;justify-content: center;}
 
 /* header */
-header { width: 100%;border-bottom: 1px solid #ddd; background-color: #fff;}
+header {width: 100%;border-bottom: 1px solid #ddd;box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);position: sticky;top: 0;z-index: 1000;background-color: #fff;}
 
 /* header top */
-.header_top { height: 70px; display: flex; justify-content: space-between; align-items: center;}
-.h_right { display: flex; gap: 15px; align-items: center;}
-.header_links {display: flex; justify-content: flex-end; gap:20px;}
+.header_top {height: 40px;background-color: #fff;border-bottom: 1px solid #eee;}
+.header_top .container {display: flex;justify-content: space-between;align-items: center;padding: 0 20px;}
+.header-left,
+.header-link {display: flex;gap: 15px;align-items: center;}
+.header-left li a,
+.header-link li a {font-size: 14px;color: #444;}
+.header-link {margin-left: auto;}
 
-/* middle */
-.logo { font-size: 22px; font-weight: bold;}
-.search { width: 280px; height: 40px; background-color: #f5f5f5; }
-.mypage {width: 100px; height: 40px; background-color: #ddd; text-align: center; line-height: 40px;}
+/* header main */
+.header_main .container {display: flex;justify-content: space-between;align-items: center;padding: 10px 0;}
+.logo {font-size: 22px;font-weight: bold;}
+.center {flex-grow: 1;display: flex;justify-content: center;gap: 10px;}
+.center input[type="text"] {width: 280px;height: 40px;padding: 0 10px;border: 1px solid black;border-radius: 5px;}
+.search-btn {width: 40px;height: 40px;border: none;background-color: red; color: white;border-radius: 5px;cursor: pointer;}
+.search-btn i {pointer-events: none;}
+.search-txt {display: flex; gap :20px; align-items: center;}
 
 /* header bottom */
-.header_b {height: 50px; display: flex; justify-content: space-between; align-items: center;}
-.header_b nav ul { display: flex; gap: 20px; }
-.catgory { width: 120px; height: 35px; background-color: wheat; text-align: center; line-height: 35px; }
+.header_b {height: 50px;display: flex;justify-content: flex-start;align-items: center;}
+.header_b .container {display: flex;justify-content: flex-start; align-items: center;}
+.header_b nav ul {display: flex;gap: 20px;}
+.header_b nav ul li a {color: #333;font-weight: 500;}
+.category {width: 120px;height: 35px;text-align: right;line-height: 35px;border-radius: 5px;cursor: pointer;}
+.category-section {max-width: 1200px;margin: 20px auto 40px;padding: 0 20px;}
+.category-section h2 {font-size: 1.5rem;font-weight: 700;margin-bottom: 10px;}
+.category-buttons {display: flex;flex-wrap: wrap;gap: 10px;}
+.category-btn {padding: 6px 16px;border-radius: 20px;border: 1px solid #ccc;background-color: #f9f9f9;color: #666;font-size: 0.9rem;cursor: pointer;transition: all 0.3s ease;white-space: nowrap;}
+.category-btn:hover {background-color: #fceabb;border-color: red;color: red;}
+.category-btn.active {background-color: red;color: white;  border-color: red;}
 
 
 /* slider */
-#slider { width: 100%; height: 400px; background-color: aqua; margin-top: 10px;}
+/* 상단 큰 슬라이드 */
+#slider {width: 100%;height: 400px;margin-top: 20px;position: relative;}
+#slider .swiper-slide{background-size: cover;}
+/* #slider .swiper-slide img {width: 100%;height: 100%;object-fit: cover;border-radius: 10px;} */
+
+/* 책 슬라이드 스타일 */
+.bookSwiper .swiper-slide {background: white;border-radius: 10px; overflow: hidden; box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);text-align: center;}
+.bookSwiper .swiper-slide img {width: 100%;height: 200px; object-fit: cover;}
+.bookSwiper .swiper-slide p {padding: 10px 0;font-weight: bold;}
 
 
-/* body  */
-main { width: 100%; height: 400px; background-color: red; margin-top: 20px;}
-.book-card {background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); transition: all 0.3s ease;cursor: pointer;}
+/* main */
+main {width: 100%;margin-top: 20px;padding-bottom: 40px;}
+.book-list-section {margin-bottom: 40px;}
+.book-list-section h2 {font-size: 1.5rem;margin-bottom: 10px;}
+.book-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);}
+.book-card .thumb {width:100%;aspect-ratio:3/4;background:#f2f2f2;}
+.book-card .thumb img {width:100%;height:100%;display:block;object-fit:cover;}
+.book-list-section .swiper-slide { width: calc((100% - 40px) / 5); background: white;border-radius: 10px; padding: 20px;  height: 240px;display: flex;justify-content: center;align-items: center;font-weight: bold;font-size: 1rem;box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);}
+.book-card img {width: 100%;height: 200px;object-fit: cover;border-radius: 5px;}
+.book-card .meta {padding:10px 12px;text-align:left;}
+.book-title {font-size:0.95rem;font-weight:600;margin:0 0 4px;}
+.book-authors {font-size:0.82rem;color:#666;margin:0;}
+.book-title {font-size: 0.95rem;font-weight: bold;margin: 10px 0 4px;}
+.book-authors { font-size: 0.85rem;color: #555;}
+/* swiper slide cards */
+.swiper-slide {background: white;border-radius: 15px;overflow: hidden;box-shadow: 0 5px 10px rgba(0,0,0,0.1);text-align: center;}
+.swiper-slide img {width: 100%;height: 200px;object-fit: cover;}
 
-/* tooter */
-footer { width: 100%; height: 200px; background-color: black; color: #fff; display: flex; align-items: center; justify-content: center;}
-.footer {background-color: #f8f4f4; color: #333; font-size: 14px; padding: 40px 20px; line-height: 1.6;}
+/* footer */
+.footer {margin-top: 50px;background-color: #f1f1f1;padding: 40px 20px;}
+.footer-top {display: flex;justify-content: space-between;flex-wrap: wrap;gap: 20px;}
 
-.footer h3, .footer h4 { margin-bottom: 10px; font-weight: bold;}
+.customer-service {flex: 1 1 300px;}
+.customer-service h3 {font-size: 1.2rem;margin-bottom: 10px;}
+.customer-service .phone {font-size: 1.5rem;font-weight: bold;margin-bottom: 10px;}
+.footer-buttons button {margin-right: 10px;background-color: red;border: none;color: white;padding: 10px 15px;border-radius: 5px;cursor: pointer;}
+.footer-links {display: flex;gap: 40px;flex-wrap: wrap;}
+.footer-links div h4 {margin-bottom: 10px; font-weight: 600;}
+.footer-links div ul li {margin-bottom: 5px;font-size: 0.9rem;}
+.footer-bottom {margin-top: 30px;text-align: center;font-weight: bold;font-size: 1.3rem;}
 
-.footer-top {display: flex; justify-content: space-between;flex-wrap: wrap; border-bottom: 1px solid #ddd; padding-bottom: 30px; margin-bottom: 20px; }
 
-.customer-service { flex: 1 1 250px;}
+.main-banner-section{ width: 100%; margin: 40px auto; padding: 0;}
+.main-banner-section h2{ max-width: 1200px; margin: 0 auto 20px; padding: 0 20px; font-size: 1.6rem;}
+.mainBannerSwiper{ width: 100vw; margin: 0 auto; position: relative; }
+.large-slide{width: 100%; height: 400px; overflow: hidden;}
+.large-slide img{ width: 100%; height: 400px; object-fit: cover; display:block;}
 
-.footer-buttons button { margin-right: 5px; padding: 5px 10px; border: 1px solid #ccc; background-color: white; cursor: pointer; font-size: 13px;}
-
-.footer-links { display: flex; flex: 3 1 600px; justify-content: space-between; flex-wrap: wrap;}
-
-.footer-links div { margin-right: 20px; min-width: 120px; }
-
-.footer-links ul { list-style: none; padding: 0;}
-
-.footer-links li {margin-bottom: 5px;}
-
-.footer-bottom {text-align: center; font-size: 12px;color: #777;}
-
-.footer-bottom .logo {
-    font-weight: bold;
-    margin-bottom: 10px;
+/* 반응형 */
+@media (max-width: 768px) {
+.header_top .container,
+.header_main .container,
+.header_b .container {flex-direction: column;align-items: center; }
+.header-left,
+.header-link,
+.header_b nav ul {flex-direction: column;gap: 10px;align-items: center;}
+.center input[type="text"] {width: 100%;max-width: 300px; }
+.book-list-section h2 { text-align: center;}
+.footer-top { flex-direction: column;align-items: center;}
+.footer-links { flex-direction: column; gap: 20px; align-items: center; }
 }
+.header_top {height: 40px;background-color: #fff;border-bottom: 1px solid #eee;}
+.header_top .container {display: flex;justify-content: space-between;align-items: center;padding: 0 20px;}
+.header-left,
+.header-link {display: flex;gap: 15px;align-items: center;}
+.header-left li a,
+.header-link li a {font-size: 14px;color: #444;}
+.header-link {margin-left: auto;}

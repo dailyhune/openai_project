@@ -2,104 +2,523 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>영풍문고</title>
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> <!--슬라이드 스타일 적용-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" /><!--아이콘 적용 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="./css/common.css">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/index.css" />
 </head>
 
 <body>
-
     <!-- Top Banner -->
-    <div class="top_banner">배너</div>
+    <img src="img/banner_1.jpg">
 
     <!-- Header -->
     <header class="header">
+        <!-- ✅ 수정된 header_top 시작 -->
         <div class="header_top">
             <div class="container">
-                <ul>
-                    <li><a href="#">매장안내</a></li>
-                    <li><a href="#">혜택안내</a></li>
-                    <li><a href="#">나우드림</a></li>
-                </ul>
-                <ul class="header-link">
-                    <li><a href="#">로그인</a></li>
-                    <li><a href="#">장바구니</a></li>
-                    <li><a href="#">회원가입</a></li>
-                    <li><a href="#">고객센터</a></li>
-                </ul>
+                <div class="header-left">
+                    <a href="#">매장안내</a>
+                    <a href="#">혜택안내</a>
+                    <a href="#">나우드림</a>
+                </div>
+                <div class="header-right">
+                    <a href="#">로그인</a>
+                    <a href="#">장바구니</a>
+                    <a href="#">회원가입</a>
+                    <a href="#">고객센터</a>
+                </div>
             </div>
         </div>
-
+        <!-- ✅ 수정된 header_top 끝 -->
         <div class="header_main">
-            <div class="logo">영풍문고</div>
-            <div class="center">
-                <div class="search-box">검색어를 검색하세요</div>
-                <input type="text" placeholder="도서명, 저자, 출판사를 검색하세요">
-                <button class="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
+            <div class="container">
+                <div class="logo">영풍문고</div>
+                <div class="center">
+                    <input type="text" placeholder="도서명, 저자, 출판사를 검색하세요" />
+                    <button class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
         <div class="header_b">
-            <nav>
-                <ul>
-                    <li><a href="#">웹툰</a></li>
-                    <li><a href="#">만화</a></li>
-                    <li><a href="#">웹소설</a></li>
-                    <li><a href="#">도서</a></li>
-                    <li><a href="#">셀렉트</a></li>
-                </ul>
-            </nav>
-            <div class="category">카테고리</div>
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href="#">전체 카테고리</a></li>
+                        <li><a href="#">베스트</a></li>
+                        <li><a href="#">신상품</a></li>
+                        <li><a href="#">추천</a></li>
+                        <li><a href="#">기프티콘</a></li>
+                        <li><a href="#">컬처페이지</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </header>
-
-    <!-- Slider -->
-    <div id="slider">
-        <div class="swiper mySwiper">
+    <!-- 메인 슬라이드 -->
+    <section class="main-banner-section container">
+        <div class="swiper slider" id="slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
-                <div class="swiper-slide">Slide 9</div>
+                <div class="swiper-slide" style="background-image: url(img/slider.jpg)">
+                    <!-- <img src="img/slider.jpg"> -->
+                </div>
+                <div class="swiper-slide" style="background-image: url(img/slider2.jpg)">
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+                <div class="swiper-slide" style="background-image: url(img/slider3.jpg)">
+                    </div>
+                            <div class="swiper-slide" style="background-image: url(img/slider3.jpg)"></div>
+                    <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-slide" style="background-image: url(img/slider4.jpg)"></div>
+                    <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-slide"></div>
+                <div class="swiper-slide"></div>
             </div>
-            <!-- Swiper navigation (optional) -->
-            <div class="swiper-pagination"></div>
+        </div>
+        <div class="icon-bar">
+            <div class="icon-item">
+                <i class="fa-solid fa-calendar"></i>
+                <p>출석체크</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-gift"></i>
+                <p>이벤트</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-ticket"></i>
+                <p>혜택안내</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-house-user"></i>
+                <p>매장안내</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-hand-holding-heart"></i>
+                <p>나우드림</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-gift"></i>
+                <p>기프티콘</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-house-user"></i>
+                <p>마이홈</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-book"></i>
+                <p>내서재</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>장바구니</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-truck"></i>
+                <p>주문/배송조회</p>
+            </div>
+            <div class="icon-item">
+                <i class="fa-solid fa-gear"></i>
+                <p>설정하기</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 오늘의 책 -->
+    <section class="book-list-section container">
+        <h2>오늘의 책</h2>
+        <div class="swiper bookSwiper" id="book-list-1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/1b.jpg">
+                        <div class="meta">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/2b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/3b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/4b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/5b.jpg">
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- 베스트셀러 -->
+    <section class="book-list-section container">
+        <h2>주간 베스트셀러</h2>
+        <div class="category-buttons"></div>
+        <button class="category-btn active">종합</button>
+        <button class="category-btn">국내소설</button>
+        <button class="category-btn">외국소설</button>
+        <button class="category-btn">에세이</button>
+        <button class="category-btn">경제경영</button>
+        <button class="category-btn">인문과학</button>
+        <button class="category-btn">어린이</button>
+        <button class="category-btn">외국어</button>
+        <button class="category-btn">자기개발</button>
+        <button class="category-btn">유아</button>
+        <button class="category-btn">가정/생활/요리</button>
+        <button class="category-btn">청소년</button>
+        <button class="category-btn">만화</button>
+        </div>
+        <div class="swiper bookSwiper" id="book-list-">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/6b.jpg">
+                        <div class="meta">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/7b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/8b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/9b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/10b.jpg">
+                    </div>
+                </div>
+            </div>
+    </section>
+    </div>
+    <div class="swiper-pagination"></div>
+    </div>
+    </section>
+    <div class="icon-bar">
+        <div class="icon-item">
         </div>
     </div>
-
-    <!-- Main -->
-    <main>
-        <div class="swiper newSwiper">
+    <!-- 화제의 신간 -->
+    <section class="book-list-section container">
+        <h1>화제의 신간</h1>
+        <div class="category-buttons"></div>
+        <button class="category-btn active">종합</button>
+        <button class="category-btn">소설/에세이/시</button>
+        <button class="category-btn">자녀교육/건강/여행/요리</button>
+        <button class="category-btn">유아/어린이/초등학습</button>
+        <button class="category-btn">중/고학습</button>
+        <button class="category-btn">인문/역사</button>
+        <button class="category-btn">외국어</button>
+        <button class="category-btn">예술</button>
+        <button class="category-btn">컴퓨터/IT</button>
+        <button class="category-btn">종교</button>
+        <button class="category-btn">경제/자기계발</button>
+        <button class="category-btn">자연/과학</button>
+        </div>
+        <div class="swiper bookSwiper" id="book-list-3">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
-                <div class="swiper-slide">Slide 9</div>
+                <div class="swiper bookSwiper" id="book-list-1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="book-card">
+                                <img src="img/11b.jpg">
+                                <div class="meta">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="book-card">
+                                <img src="img/12b.jpg">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="book-card">
+                                <img src="img/13b.jpg">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="book-card">
+                                <img src="img/14b.jpg">
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="book-card">
+                                <img src="img/15b.jpg">
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+
+    </section>
+
+    <div class="container"><img class="mid-hero" src="img/banner_2.jpg" alt="중간 배너"></div>
+
+    <!-- 인기 검색어 -->
+    <section class="book-list-section container">
+        <h2>인기 검색어</h2>
+        <div class="category-buttons"></div>
+        <div class="category-buttons"></div>
+        <button class="category-btn active">1.데이식스</button>
+        <button class="category-btn">2.타로카드</button>
+        <button class="category-btn">3.귀멸의 칼날</button>
+        <button class="category-btn">4.day6</button>
+        <button class="category-btn">5.발레</button>
+        <button class="category-btn">6.귀멸의 칼날</button>
+        <button class="category-btn">7.필사</button>
+        <button class="category-btn">8.ai</button>
+        <button class="category-btn">9.ai시대의</button>
+        <button class="category-btn">10.유체역학</button>
+        </div>
+        <div class="swiper bookSwiper" id="book-list-4">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/16b.jpg">
+                        <div class="meta">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/17b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/18b.jpg">
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+    </section>
+
+    <!-- MD추천 도서 -->
+    <section class="book-list-section container">
+        <h2>MD추천 도서</h2>
+        <div class="swiper bookSwiper" id="book-list-5">
+            <div class="swiper-wrapper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="book-card">
+                            <img src="img/19b.jpg">
+                            <div class="meta">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="book-card">
+                            <img src="img/20b.jpg">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="book-card">
+                            <img src="img/21b.jpg">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="book-card">
+                            <img src="img/22b.jpg">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="book-card">
+                            <img src="img/23b.jpg">
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+    </section>
+
+    <!-- 급상승 도서 -->
+    <section class="book-list-section container">
+        <h2>급상승 도서</h2>
+        <div class="swiper bookSwiper" id="book-list-6">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/24b.jpg">
+                        <div class="meta">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/25b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/26b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/27b.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/28b.jpg">
+                    </div>
+    </section>
+
+    <!-- hot book -->
+    <section class="book-list-section container">
+        <h2>hot book</h2>
+        <div class="swiper bookSwiper" id="book-list-7">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/29.jpg">
+                        <div class="meta">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/30.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/31.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/32.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/33.jpg">
+                    </div>
+    </section>
+
+    <!-- hot book -->
+
+    <div class="container"><img class="mid-hero" src="img/banner_3.jpg" alt="중간 배너"></div>
+
+    <section class="main-banner-section container">
+        <h2>테마 추천도서</h2>
+        <div class="swiper mainBannerSwiper">
+            <img src="img/tema.png">
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- 독자들의 선택 -->
+    <section class="book-list-section container">
+        <h2>독자들의 선택</h2>
+        <div class="swiper bookSwiper" id="book-list-8">
+            <div class="swiper-wrapper">
+                <img src="img/dokja.png">
             </div>
             <div class="swiper-pagination"></div>
         </div>
-    </main>
+    </section>
+
+    <div class="container"><img class="mid-hero" src="img/banner_4.jpg" alt="중간 배너"></div>
+
+    <!-- 문구 GIFT 시즌 상품 -->
+    <section class="book-list-section container">
+        <h2>문구 GIFT 시즌 상품</h2>
+        <div class="swiper bookSwiper" id="book-list-8">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/34.jpg">
+                        <div class="meta">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/35.png">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/36.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/37.png">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/38.jpg">
+                        <div class="swiper-pagination"></div>
+                    </div>
+    </section>
+
+    <!-- 정가 인하 도서 -->
+    <section class="book-list-section container">
+        <h2>정가 인하 도서</h2>
+        <div class="swiper bookSwiper" id="book-list-6">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/39.jpg">
+                        <div class="meta">
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/40.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/41.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/42.jpg">
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="book-card">
+                        <img src="img/43.jpg">
+                        <div class="swiper-pagination"></div>
+                    </div>
+    </section>
+
 
     <!-- Footer -->
     <footer class="footer">
@@ -144,54 +563,43 @@
                             <li>취소/교환/반품</li>
                             <li>적립금 사용</li>
                             <li>교환권 사용</li>
-                            <li>설치/설치</li>
+                            <li>설정</li>
                         </ul>
                     </div>
                     <div>
                         <h4>고객센터</h4>
                         <ul>
-                            <li>1:1 고객상담</li>
-                            <li>FAQ</li>
                             <li>공지사항</li>
+                            <li>자주하는 질문</li>
+                            <li>1:1 문의</li>
+                            <li>자료실</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <div class="logo">영풍문고</div>
+                <p>영풍문고</p>
+                <p>개인정보처리방침 | 이메일무단수집거부 | 이용약관 | 사업자정보확인</p>
+                <p>대표자: 홍길동 | 사업자등록번호: 123-45-67890</p>
             </div>
         </div>
     </footer>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-    <!-- Swiper Init -->
     <script>
-        new Swiper(".mySwiper", {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
+        var swiper = new Swiper(".slider", {
             navigation: {
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
         });
-
-        new Swiper(".newSwiper", {
-            slidesPerView: 6,
-            spaceBetween: 10,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
     </script>
 
+    <!-- Custom JS -->
+    <script src="./js/common.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>

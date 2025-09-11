@@ -31,6 +31,7 @@ header {width: 100%;border-bottom: 1px solid #ddd;box-shadow: 0 2px 10px rgba(0,
 .header-link li a {font-size: 14px;color: #444;}
 .header-link {margin-left: auto;}
 
+
 /* header main */
 .header_main .container {height: 100%; display: flex;justify-content: space-between;align-items: center;padding: 10px 0;}
 .logo {font-size: 38px; display: flex; align-items: center; gap: 8px; font-weight: bold;}
@@ -39,8 +40,9 @@ header {width: 100%;border-bottom: 1px solid #ddd;box-shadow: 0 2px 10px rgba(0,
 .search-btn {width: 40px;height: 40px;border: none;background-color: red; color: white;border-radius: 5px;cursor: pointer;}
 .search-btn i {pointer-events: none;}
 .search-txt {display: flex; gap :20px; align-items: center;}
-.ad-banner { margin-left: auto;}
-.ad-banner img {max-height: 60px; display: block;}
+.ad-banner { margin-left: auto;  margin-left: auto;  }
+.ad-banner img {max-height: 130px; display: block;  height:auto; }
+
 /* header bottom */
 .header_b {height: 50px;display: flex;justify-content: flex-start;align-items: center;}
 .header_b .container {display: flex;justify-content: flex-start; align-items: center;}

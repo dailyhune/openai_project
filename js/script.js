@@ -50,3 +50,4 @@ loadBooks("인기 도서", "book-list-6");
 loadBooks("문구", "book-list-7");
 loadBooks("정가 인하", "book-list-8");
 loadBooks("베스트셀러", "book-list-best");
+loadBooks("가을", "book-list-9");

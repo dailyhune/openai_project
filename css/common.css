@@ -147,7 +147,80 @@ main {width: 100%;margin-top: 20px;padding-bottom: 40px;}
 .book-card img {width: 100%;height: auto;object-fit: cover;display: block;}
 .book-card {background: none !important;box-shadow: none !important;padding: 0 !important;border-radius: 0 !important;}
 
-/* 서브 북 페이지 */
-.book-detail {display: flex; justify-content: center; align-items: center;margin: 50px auto;}
-.book-detail img {width: 1000px; height: auto; box-shadow: 0 4px 15px; border-radius: 0px;}
-.sub_book_nav{height: 40px; background-color: #F6F6F6;}
+
+.book-detail {display: flex; justify-content: flex-start;align-items: flex-start;gap: 40px; margin: 40px auto;max-width: 1100px;font-family: 'Pretendard', sans-serif;color: #222;}
+.product-image img {width: 650px;border: 1px solid #ddd;box-shadow: 0 4px 15px rgba(0,0,0,0.1);}
+.product-info {flex: 1;min-width: 300px;}
+.book-title {font-size: 1.8rem;font-weight: bold;margin-bottom: 15px;color: #111;}
+.book-author, .book-date {color: #666;font-size: 0.95rem;margin-bottom: 5px;}
+.price-box {margin: 20px 0;font-size: 1.6rem;font-weight: bold;}
+.discount-price {color: #d32f2f;margin-right: 10px;}
+
+.original-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 5px;
+  font-size: 1.2rem;
+  font-weight: normal;
+}
+
+.discount-rate {
+  color: #d32f2f;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.point-info, .shipping-info {
+  margin: 10px 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.quantity-box {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.quantity-box button {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  cursor: pointer;
+}
+
+.quantity-box input {
+  width: 50px;
+  text-align: center;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.button-box {display: flex;gap: 10px;margin-top: 20px;}
+
+.button-box button {
+  padding: 12px 24px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* 버튼 색상 */
+.cart {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.buy {
+  background: #2e7d32;   /* 초록 */
+  color: white;
+}
+
+.nowdream {
+  background: #d32f2f;   /* 빨강 */
+  color: white;
+}
